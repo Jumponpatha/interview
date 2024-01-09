@@ -22,4 +22,5 @@ if x.status_code == 200:
     # Print the result firstname, lastname and gender
     print(f'First Name: {first_name} Last Name: {last_name} Gender: {gender}')
 else:
+    # Print the error
     print('ERROR API')
