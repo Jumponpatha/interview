@@ -1,25 +1,21 @@
 # Import requests library
 import requests
 
-# Using get data from API link
-response = requests.get('https://randomuser.me/api')
+def get_random_users(numbers):
+    response = requests.get(f'https://randomuser.me/api/?results={numbers}')
+
+    data = response.json()
+
+    return data['results']
 
 # print(response.status_code)
 # print(response.text)
 
-data = response.json()
+# Set number 20
+users = get_random_users(20)
 
-users = data['results']
-
-# Input data from API link to result
+#probability = requests.get('https://api.genderize.io/?name=')
+#for user in users:
+    #f
 for user in users:
-    first_name = user['name']['first']
-    last_name = user['name']['last']
-    gender = user['gender']
-
-probability = requests.get('https://api.genderize.io/?name=')
-for user in users:
-    f
-
-# Print the result firstname, lastname and gender
-print(f'First Name: {first_name} Last Name: {last_name} Gender: {gender}')
+    print(f"Name: {user['name']['first']} {user['name']['last']}, Gender: {user['gender']}")
