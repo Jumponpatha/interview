@@ -1,5 +1,6 @@
 # Import requests library
 import requests
+import pandas as pd
 
 def get_random_users(numbers):
     response = requests.get(f'https://randomuser.me/api/?results={numbers}')
@@ -18,4 +19,9 @@ users = get_random_users(20)
 #for user in users:
     #f
 for user in users:
-    print(f"Name: {user['name']['first']} {user['name']['last']}, Gender: {user['gender']}")
+    first_name = user['name']['first']
+    last_name = user['name']['last']
+    gender_actual = user['gender']
+
+    df1 = pd.DataFrame(columns=['first_name', 'last_name', 'gender_actual'])
+print(df1)
