@@ -2,25 +2,24 @@
 import requests
 
 # Using get data from API link
-x = requests.get('https://randomuser.me/api')
+response = requests.get('https://randomuser.me/api')
 
-# print(x.status_code)
-# print(x.text)
+# print(response.status_code)
+# print(response.text)
 
-# Using if/else for checking status code equal 200
-if x.status_code == 200:
-    data = x.json()
+data = response.json()
 
-    users = data['results']
+users = data['results']
 
-    # Input data from API link to result
-    for user in users:
-        first_name = user['name']['first']
-        last_name = user['name']['last']
-        gender = user['gender']
+# Input data from API link to result
+for user in users:
+    first_name = user['name']['first']
+    last_name = user['name']['last']
+    gender = user['gender']
 
-    # Print the result firstname, lastname and gender
-    print(f'First Name: {first_name} Last Name: {last_name} Gender: {gender}')
-else:
-    # Print the error
-    print('ERROR API')
+probability = requests.get('https://api.genderize.io/?name=')
+for user in users:
+    f
+
+# Print the result firstname, lastname and gender
+print(f'First Name: {first_name} Last Name: {last_name} Gender: {gender}')
