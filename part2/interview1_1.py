@@ -25,7 +25,8 @@ for user in users:
     last_name = user['name']['last']
     gender_actual = user['gender']
 
-    df = df.append({'first_name': first_name, 'last_name': last_name, 'gender(actual)': gender_actual}, ignore_index=True)
+    user_df = {'first_name': first_name, 'last_name': last_name, 'gender(actual)': gender_actual}
+    df = pd.concat([df, pd.DataFrame([user_df])], ignore_index=True)
 
 prediction = []
 
@@ -42,7 +43,7 @@ for index, row in df.iterrows():
     prediction.append({'gender(predict)': gender_predict, 'probability': probability})
 
 # Create dataframe with columns gender(actual) and probability, then add to df.
-predict_df = pd.DataFrame({'gender(actual)': gender_actual, 'probability': probability})
+predict_df = pd.DataFrame(prediction)
 df = pd.concat([df, predict_df], axis=1)
 
 # Testing the prediction and actual gender (Boolean)
