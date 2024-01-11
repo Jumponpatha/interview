@@ -44,4 +44,4 @@ for index, row in df.iterrows():
 predict_df = pd.DataFrame({'gender(actual)': gender_actual, 'probability': probability})
 df = pd.concat([df, predict_df], axis=1)
 
-df['same_gender'] = df['gender(predict)']
+df['same_gender'] = df['gender(actual)'] == df['gender(predict)']
