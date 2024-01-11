@@ -41,7 +41,12 @@ for index, row in df.iterrows():
     # Append function to add data in row gender_predict and probability
     prediction.append({'gender(predict)': gender_predict, 'probability': probability})
 
+# Create dataframe with columns gender(actual) and probability, then add to df.
 predict_df = pd.DataFrame({'gender(actual)': gender_actual, 'probability': probability})
 df = pd.concat([df, predict_df], axis=1)
 
+# Testing the prediction and actual gender (Boolean)
 df['same_gender'] = df['gender(actual)'] == df['gender(predict)']
+
+# Print the DataFrame
+print(df)
