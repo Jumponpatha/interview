@@ -16,8 +16,8 @@ def get_random_users(numbers):
 # Set number 20 users
 users = get_random_users(20)
 
-# Create DataFrame with columns 'first_name', 'last_name', and 'gender_actual'.
-df = pd.DataFrame(columns=['first_name', 'last_name', 'gender_actual'])
+# Create DataFrame with columns 'first_name', 'last_name', and 'gender(actual)'.
+df = pd.DataFrame(columns=['first_name', 'last_name', 'gender(actual)'])
 
 # For-loop to loop first_name, last_name and gender_actual
 for user in users:
@@ -50,4 +50,4 @@ df = pd.concat([df, predict_df], axis=1)
 df['same_gender'] = df['gender(actual)'] == df['gender(predict)']
 
 # Print the DataFrame
-print(df)
+display(df)
